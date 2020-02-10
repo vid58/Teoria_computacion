@@ -49,74 +49,73 @@ using namespace std;
     cout<<endl<<almacen1[3];
 }*/
 
-int main(){
+int main() {
     string palabra;
     int n;
 
-    palabra="greatgrandmother";
+    palabra = "greatgreatgreatgreatgrandmother";
 
-    for(int i=0;i<palabra.size();i++){
-        cout<<palabra[i]<<"  ";
-        n=i;
+    for (int i = 0; i < palabra.size(); i++) {
+        cout << palabra[i] << "  ";
+        n = i;
     }
 
-    cout<<endl;
+    cout << endl;
     n++;
-    cout<<n<<endl;
-    cout<<palabra[4]<<endl;
+    cout << n << endl;
+    cout << palabra[4] << endl;
 
-    cout<<":::::::::::::::"<<endl;
+    cout << ":::::::::::::::" << endl;
 
     int cant_palabras;
-    cant_palabras=n/5;
+    cant_palabras = n / 5;
 
-    cout<<cant_palabras<<endl;
-    cout<<palabra[0]<<endl;
+    cout << cant_palabras << endl;
+    cout << palabra[0] << endl;
 
     string palabritas[cant_palabras];
 
-    if(n==6){
-        if(palabra[0]=='f'){
-            palabritas[0]=palabra;
-        }else if(palabra[0]=='m'){
-            palabritas[0]=palabra;
+    if (n == 6) {
+        if (palabra[0] == 'f') {
+            palabritas[0] = palabra;
+        } else if (palabra[0] == 'm') {
+            palabritas[0] = palabra;
         }
-    }
-    else if(n>6){
-        if(palabra[4]=='d'){
-            int letra=5;
-            int temp_letra=5;
+    } else if (n > 6) {
+        if (palabra[4] == 'd') {
+            int letra = 5;
+            int temp_letra = 5;
             char temp[temp_letra];
             string tempo;
-            int _i=0;
+            int _i = 0;
 
-            for(int j=0;j<cant_palabras;j++) {
+            for (int j = 0; j < cant_palabras; j++) {
 
-                int k=0;
+                int k = 0;
                 for (int i = _i; i < letra; i++) {
 
                     temp[k] = palabra[i];
                     tempo = temp;
-                    _i=i;
+                    _i = i;
                     k++;
 
                 }
 
-                letra=letra+_i+1+1;
+                letra = letra + _i + 1 + 1;
                 _i++;
-                palabritas[j]=tempo;
+                palabritas[j] = tempo;
 
             }
 
-        }else if(palabra[4]=='t'){
+        } else if (palabra[4] == 't') {
 
-            int letra=5;
-            int temp_letra=5;
+            int letra = 5;
+            int temp_letra = 5;
             char temp[temp_letra];
             string tempo;
-            int _i=0;
+            int _i = 0;
 
-            if(n==16) {
+            if (n == 16) {
                 for (int j = 0; j < cant_palabras; j++) {
 
                     int k = 0;
@@ -134,13 +133,53 @@ int main(){
                     palabritas[j] = tempo;
 
                 }
-            }else{
-                cout<<"malo";
+            } else {
+                int algo;
+
+                for (int i = 0; i < palabra.size(); i++) {
+                    if (palabra[i] == 't') {
+                        algo++;
+                    }
+                }
+
+                algo = algo - 1;
+                cout << algo;
+
+                for (int i = 0; i < algo; i++) {
+                    palabritas[i] = "great";
+                }
+
+                int p = (algo * 5);
+                letra = 5 + p;
+
+                cout << "[" << p << " " << letra << "]";
+
+                for (int j = 0; j < cant_palabras - algo; j++) {
+
+                    int k = 0;
+
+                    for (int i = p; i < letra; i++) {
+
+                        temp[k] = palabra[i];
+                        tempo = temp;
+                        p = i;
+                        k++;
+
+                    }
+
+                    letra = letra + 5 + 1;
+                    p = p + 1;
+                    _i++;
+                    palabritas[j + 2] = tempo;
+
+                }
+
+                palabritas[0] = "great";
             }
         }
     }
 
     for(int i=0;i<cant_palabras;i++){
-        cout<<palabritas[i]<<" ";
+        cout<<palabritas[i]<<i;
     }
 }
