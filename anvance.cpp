@@ -145,9 +145,6 @@ int main() {
                 algo = algo - 1;
                 cout << algo;
 
-                for (int i = 0; i < algo; i++) {
-                    palabritas[i] = "great";
-                }
 
                 int p = (algo * 5);
                 letra = 5 + p;
@@ -167,14 +164,17 @@ int main() {
 
                     }
 
-                    letra = letra + 5 + 1;
+                    letra = letra + 5 + 1+1;
                     p = p + 1;
                     _i++;
                     palabritas[j + 2] = tempo;
 
                 }
-
-                palabritas[0] = "great";
+                palabritas[cant_palabras-1]= palabritas[3];
+                palabritas[cant_palabras-2]= palabritas[2];
+                for (int i = 0; i < algo; i++) {
+                    palabritas[i] = "great";
+                }
             }
         }
     }
