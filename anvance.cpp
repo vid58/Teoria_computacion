@@ -53,7 +53,7 @@ int main(){
     string palabra;
     int n;
 
-    palabra="grandmother";
+    palabra="greatgrandmother";
 
     for(int i=0;i<palabra.size();i++){
         cout<<palabra[i]<<"  ";
@@ -110,10 +110,37 @@ int main(){
 
         }else if(palabra[4]=='t'){
 
+            int letra=5;
+            int temp_letra=5;
+            char temp[temp_letra];
+            string tempo;
+            int _i=0;
+
+            if(n==16) {
+                for (int j = 0; j < cant_palabras; j++) {
+
+                    int k = 0;
+                    for (int i = _i; i < letra; i++) {
+
+                        temp[k] = palabra[i];
+                        tempo = temp;
+                        _i = i;
+                        k++;
+
+                    }
+
+                    letra = letra + _i + 1;
+                    _i++;
+                    palabritas[j] = tempo;
+
+                }
+            }else{
+                cout<<"malo";
+            }
         }
     }
 
-    for(int i=0;i<2;i++){
+    for(int i=0;i<cant_palabras;i++){
         cout<<palabritas[i]<<" ";
     }
 }
