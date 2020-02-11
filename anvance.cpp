@@ -48,12 +48,29 @@ using namespace std;
 
     cout<<endl<<almacen1[3];
 }*/
+/*int n=0;
+void algo(char A[]);
+int main(){
+    char A[6]={'m','o','t','h','e','r'};
+
+
+
+    algo (A);
+}
+void algo(char  A[]){
+
+    while (n!=6){
+        cout<<A[n]<<"("<<A[n+1]<<")";
+        n++;
+    }
+
+}*/
 
 int main() {
     string palabra;
     int n;
 
-    palabra = "greatgreatgreatgreatgrandmother";
+    palabra = "greatgreatgrandmother";
 
     for (int i = 0; i < palabra.size(); i++) {
         cout << palabra[i] << "  ";
@@ -62,22 +79,22 @@ int main() {
 
     cout << endl;
     n++;
-    cout << n << endl;
-    cout << palabra[4] << endl;
+    cout << "Nº de letras: " << n << endl;
 
     cout << ":::::::::::::::" << endl;
 
     int cant_palabras;
     cant_palabras = n / 5;
 
-    cout << cant_palabras << endl;
-    cout << palabra[0] << endl;
+    cout << "Cantidad de palabras: " << cant_palabras << endl;
 
     string palabritas[cant_palabras];
+//    string len_inter[];
 
     if (n == 6) {
         if (palabra[0] == 'f') {
             palabritas[0] = palabra;
+
         } else if (palabra[0] == 'm') {
             palabritas[0] = palabra;
         }
@@ -143,13 +160,11 @@ int main() {
                 }
 
                 algo = algo - 1;
-                cout << algo;
-
 
                 int p = (algo * 5);
                 letra = 5 + p;
 
-                cout << "[" << p << " " << letra << "]";
+                //cout << "[" << p << " " << letra << "]";
 
                 for (int j = 0; j < cant_palabras - algo; j++) {
 
@@ -180,6 +195,27 @@ int main() {
     }
 
     for(int i=0;i<cant_palabras;i++){
-        cout<<palabritas[i]<<i;
+        cout<<palabritas[i]<<" ";
+    }
+
+    for(int i=0;i<cant_palabras;i++){
+        if(palabritas[i]== "mother"){
+            palabritas[i]="mutter";
+        }
+        else if(palabritas[i]== "father"){
+            palabritas[i]="vater";
+        }
+        else if(palabritas[i]== "grand"){
+            palabritas[i]="gross";
+        }
+        else if(palabritas[i]== "great"){
+            palabritas[i]="ur";
+        }
+    }
+
+    cout<<endl;
+
+    for(int i=0;i<cant_palabras;i++){
+        cout<<palabritas[i]<<" ";
     }
 }
