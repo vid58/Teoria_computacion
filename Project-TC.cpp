@@ -1,6 +1,3 @@
-//
-// Created by claudioecharre on 12/02/20.
-//
 #include <iostream>
 #include <list>
 #include <map>
@@ -53,13 +50,18 @@ void ShowList(list <string> & saLista)
 
 //////////////////////////////////////
 bool CheckOracion(vector<string> &sOracion) {
-    if (sOracion[0] == "The" || sOracion[0] == "the") {
-        if (sOracion[1] == "mother" || sOracion[1] == "father") {
-            if (sOracion[2] == "of") {
-                if (sOracion[3] == "Mary" || sOracion[3] == "John") {
-                    return 1;
-                } else {
-                    if (sOracion[3] == "the") {
+    if (sOracion[0] == "The" || sOracion[0] == "the") 
+    {
+        if (sOracion[1] == "mother" || sOracion[1] == "father") 
+        {
+            if (sOracion[2] == "of") 
+            {
+                if (sOracion[3] == "Mary" || sOracion[3] == "John") return 1;
+                 
+                else 
+                {
+                    if (sOracion[3] == "the") 
+                    {
                         int n = (sOracion.size() - 4) / 3;
                         if ((sOracion.size() - 4) % 3 == 0) {
                             for (int i = 0; i < n; i++) {
@@ -92,14 +94,14 @@ void Rellenar(string parent1, string parent2, string name, int n)
         case 3: if(parent1=="mother") Traduccion.push_back("Die");
             else if (parent1=="father") Traduccion.push_back("Der");
             Traduccion.push_back(Traductor[parent2]);
-            Traduccion.push_back("of");
+            Traduccion.push_back(Traductor["of"]);
             Traduccion.push_back(Traductor[name]);
             break;
 
         case 6: if(parent1=="mother") Traduccion.push_back("Eine");
             else if (parent1=="father") Traduccion.push_back("Ein");
             Traduccion.push_back("gross"+Traductor[parent2]);
-            Traduccion.push_back("of");
+            Traduccion.push_back(Traductor["of"]);
             Traduccion.push_back(Traductor[name]);
             break;
 
@@ -108,7 +110,7 @@ void Rellenar(string parent1, string parent2, string name, int n)
                 else if (parent1=="father") Traduccion.push_back("Ein");
                 for(int j=0;j<(n/3)-2;j++) urs+="ur";
                 Traduccion.push_back(urs+"gross"+Traductor[parent2]);
-                Traduccion.push_back("of");
+                Traduccion.push_back(Traductor["of"]);
                 Traduccion.push_back(Traductor[name]);
 
             }
@@ -209,7 +211,6 @@ void LenguajeRegular(vector<string> &sLR)
         else if(*posLR=="mother"){leng+="mo()";}
         else if(*posLR=="father"){leng+="fa()";}
         posLR++;
-        contador;
     }
     for(int g=0;g<contador;g++) leng+=")";
     tokenRegular.push_back(leng);
@@ -276,7 +277,7 @@ int main()
     {
         cout<<"Escribe la oracion a traducir: \n\t";
         Ingresar();
-        TraducirOraciones(CheckOracion(Sentences));
+        TraducirOraciones(CheckOracion(Sentences)==1);
     }
 
     Fin();
